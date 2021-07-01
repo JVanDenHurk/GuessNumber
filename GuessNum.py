@@ -1,8 +1,17 @@
 import random
 
-print("What number am I thinking of?")
-
-#userInput = input()
 randomNum = random.randint(0, 10)
 
-print()
+while True:
+    try:
+        userInput = int(input("What number am I thinking of? \n Enter: "))
+        while userInput != randomNum:
+            if userInput < randomNum:
+                userInput = int(input("Try a higher number: "))
+            if userInput > randomNum:
+                userInput = int(input("Try a lower number: "))
+            if userInput == randomNum:
+                print("YOU GOT IT!")
+                break
+    except ValueError:
+        print("That is not a number!")
